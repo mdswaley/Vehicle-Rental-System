@@ -21,7 +21,7 @@ public class CustomerDAOImp implements CustomerDAO {
     @Override
     public void addCustomer(Customer customer) {
         String sql = """
-                INSERT INTO customers (name, email, phone address) VALUES (?, ?, ?, ?)
+                INSERT INTO customers (name, email, phone, customer_address) VALUES (?, ?, ?, ?)
                 """;
 
         try(PreparedStatement ps = connection.prepareStatement(sql)){
@@ -55,7 +55,7 @@ public class CustomerDAOImp implements CustomerDAO {
                     customer.setName(rs.getString("name"));
                     customer.setEmail(rs.getString("email"));
                     customer.setPhone(rs.getString("phone"));
-                    customer.setAddress(rs.getString("address"));
+                    customer.setAddress(rs.getString("customer_address"));
 
                     return customer;
                 }
@@ -85,7 +85,7 @@ public class CustomerDAOImp implements CustomerDAO {
                 customer.setName(rs.getString("name"));
                 customer.setEmail(rs.getString("email"));
                 customer.setPhone(rs.getString("phone"));
-                customer.setAddress(rs.getString("address"));
+                customer.setAddress(rs.getString("customer_address"));
 
                 customers.add(customer);
             }
@@ -100,7 +100,7 @@ public class CustomerDAOImp implements CustomerDAO {
     public void updateCustomer(Customer customer) {
         String sql = """
                 UPDATE customers
-                SET name = ?, email = ?, phone = ?, address = ?
+                SET name = ?, email = ?, phone = ?, customer_address = ?
                 WHERE id = ?
                 """;
 
