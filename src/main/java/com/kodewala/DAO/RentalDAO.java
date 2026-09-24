@@ -16,8 +16,4 @@ public interface RentalDAO {
     List<Rental> getRentalsByCustomerId(int customerId) throws SQLException;
 
     List<Rental> getActiveRentals() throws SQLException;
-
-    void returnVehicle(int rentalId) throws SQLException;
-
-    void cancelRental(int rentalId) throws SQLException;
 }

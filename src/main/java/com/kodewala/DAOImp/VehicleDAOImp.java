@@ -15,7 +15,7 @@ public class VehicleDAOImp implements VehicleDAO {
 
     private final Connection connection;
 
-    VehicleDAOImp(Connection connection){
+    public VehicleDAOImp(Connection connection){
         this.connection = connection;
     }
 
